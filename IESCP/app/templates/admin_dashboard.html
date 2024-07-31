@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+
+<h2>Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Campaigns</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Budget</th>
+            <th>Visibility</th>
+            <th>Sponsor ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for campaign in campaigns %}
+        <tr>
+            <td>{{ campaign.id }}</td>
+            <td>{{ campaign.name }}</td>
+            <td>{{ campaign.description }}</td>
+            <td>{{ campaign.start_date }}</td>
+            <td>{{ campaign.end_date }}</td>
+            <td>{{ campaign.budget }}</td>
+            <td>{{ campaign.visibility }}</td>
+            <td>{{ campaign.sponsor_id }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Ad Requests</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Campaign ID</th>
+            <th>Influencer ID</th>
+            <th>Messages</th>
+            <th>Requirements</th>
+            <th>Payment Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ad_request in ad_requests %}
+        <tr>
+            <td>{{ ad_request.id }}</td>
+            <td>{{ ad_request.campaign_id }}</td>
+            <td>{{ ad_request.influencer_id }}</td>
+            <td>{{ ad_request.messages }}</td>
+            <td>{{ ad_request.requirements }}</td>
+            <td>{{ ad_request.payment_amount }}</td>
+            <td>{{ ad_request.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
